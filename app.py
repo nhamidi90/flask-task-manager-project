@@ -24,7 +24,7 @@ mongo = PyMongo(app)
 @app.route("/get_tasks")
 def get_tasks():
     # generate data from tasks collection on mongodb
-    tasks = mongo.db.tasks.find()
+    tasks = list(mongo.db.tasks.find())
     return render_template("tasks.html", tasks = tasks)
     # first tasks is what template will use. 
     # second tasks is defined variable above
